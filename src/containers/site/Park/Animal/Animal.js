@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../../components/UI/Button/Button";
+import Button from "../../../../components/UI/Button/Button"
 
 const Animal = (props) => (
   <>
@@ -16,7 +16,7 @@ const Animal = (props) => (
       <div className="card-body">
         <h3>
           Famille :{" "}
-          <Button typeBtn="btn-primary">
+          <Button typeBtn="btn-dark" clic = {() => props.filterFamily(props.famille.idFamily)}>
             {props.famille.wordingFamily.toUpperCase()}
           </Button>
         </h3>
@@ -39,8 +39,13 @@ const Animal = (props) => (
                 case "5" : colorBtn="btn-secondary";
                 break;
                 default : colorBtn = "btn-info";
+                break;
               }
-              return <Button typeBtn={colorBtn} css="m-1" key={continent.idContinent}>{continent.wordingContinent}</Button>
+              return <Button typeBtn={colorBtn}
+              clic = {() => props.filterContinent(continent.idContinent)}
+              css="m-1" 
+              key={continent.idContinent}>{continent.wordingContinent}
+              </Button>
             })
         }
       </div>

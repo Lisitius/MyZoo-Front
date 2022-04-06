@@ -16,6 +16,14 @@ class Park extends Component {
       });
   };
 
+  handleSelectionFamily = (idFamily) => {
+    console.log(`Demande de ${idFamily}`);
+  }
+
+  handleSelectionContinent = (idContinent) => {
+    console.log(`Demande de ${idContinent}`);
+  }
+
   render() {
     return (
       <>
@@ -26,7 +34,10 @@ class Park extends Component {
               this.state.animals.map((animal) => {
                 return (
                   <div className="col-12 col-md-6 col-xl-4" key={animal.id}>
-                    <Animal {...animal} />
+                    <Animal {...animal}
+                    filterFamily = {this.handleSelectionFamily} 
+                    filterContinent = {this.handleSelectionContinent} 
+                    />
                   </div>
                 );
               })}
